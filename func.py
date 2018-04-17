@@ -6,9 +6,9 @@ def s_similar(x,a,b):
     if x <= a:
         return 0
     elif a <= x <= ((a + b) / 2):
-        return (2 * ((x - a) ** 2)) / ((b - a) ** 2))
+        return (2 * ((x - a) ** 2)) / ((b - a) ** 2)
     elif (a + b) / 2 <= x <= b:
-        return 1 - (2 * ((x - a) ** 2)) / ((b - a) ** 2))
+        return 1 - (2 * ((x - a) ** 2)) / ((b - a) ** 2)
     else:
         return 1
 import matplotlib.pyplot as plt
@@ -239,6 +239,48 @@ i = 0
 while i < 50:
     x.append(i)
     y.append(comp_sigm(i,5,10,8,12))
+    i += 0.1
+plt.plot(x,y)
+plt.grid(True)
+
+
+
+
+
+
+
+
+
+
+def s_similar(x,a,b):
+    if x <= a:
+        return 0
+    elif a <= x <= ((a + b) / 2):
+        return (2 * ((x - a) ** 2)) / ((b - a) ** 2))
+    elif (a + b) / 2 <= x <= b:
+        return 1 - (2 * ((x - a) ** 2)) / ((b - a) ** 2))
+    else:
+        return 1
+
+     def trapeze(x,a,b,c,d):
+    if x <= a:
+        return 0
+    if a < x < c:
+        return (x - a) / (c - a)
+    if c <= x <= d:
+        return 1
+    if d < x < b:
+        return (b - x) / (b - d)
+    if x >= b:
+        return 0
+import matplotlib.pyplot as plt
+import numpy as np
+x=[]
+y=[]
+i = 0
+while i < 50:
+    x.append(i)
+    y.append(min(s_similar(i,10,40,20,30), 1 - trapeze(i,1,25)))
     i += 0.1
 plt.plot(x,y)
 plt.grid(True)
